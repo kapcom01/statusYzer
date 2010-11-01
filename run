@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# vriskoume to plires  path tou script (/home/user/bin/foo.sh)
+SCRIPT=$(readlink -f "$0")
+
+# kratame mono th diadromi (/home/user/bin)
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+gksu /usr/bin/env python "$SCRIPTPATH/statusyzer.pyw"

@@ -1,0 +1,21 @@
+Θα πρέπει το σύστημά σας να έχει εγατεστημένες τις εξαρτήσεις python, python-qt4 και python-pcapy.
+
+
+ΕΓΚΑΤΑΣΤΑΣΗ ΣΕ DEBIAN:
+
+Σε debian-based διανομές (πχ Ubuntu, Linux Mint) μπορείτε να τρέξτε τις παρακάτω εντολές στο Τερματικό:
+
+sudo apt-get install python
+sudo apt-get install python-qt4
+sudo apt-get install python-pcapy
+
+
+ΕΓΚΑΤΑΣΤΑΣΗ ΣΕ RPM:
+
+Σε RPM-based διανομές (πχ Fedora, openSUSE, Mandriva) .......
+
+
+
+ΕΚΤΕΛΕΣΗ:
+
+Μετά για να τρέξετε το πρόγραμμα απλώς κάντε διπλό κλικ στο αρχείο "run" και μετα πατήστε το κουμπί "Εκτέλεση".
