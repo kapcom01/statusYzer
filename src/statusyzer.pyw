@@ -183,7 +183,7 @@ class StatusyzerForm(QtGui.QMainWindow):
 		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
 		for email in self.buddies:
-			tmpindex = self.buddies[email].getIndex()
+			tmpindex = self.buddies[email].getIndex() #fuzyy.. δεν θυμάμαι γιατί το έγραψα...
 			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), self.language.getMessage('Connecting to Notification Server at'), address))
 			tablistrow = self.buddies[email].tablist.count()-1
 			self.buddies[email].tablist.item(tablistrow).setTextColor(QtGui.QColor('orange'))
@@ -257,17 +257,17 @@ class Messages():
 
 
 try:
-    # Change the process name.
-    import ctypes
-    libc = ctypes.CDLL('libc.so.6')
-    libc.prctl(15, 'statusYzer', 0, 0)
+	# Change the process name.
+	import ctypes
+	libc = ctypes.CDLL('libc.so.6')
+	libc.prctl(15, 'statusYzer', 0, 0)
 except:
-    pass
+	pass
 
 if __name__ == "__main__":
-    app = QtGui.QApplication([])
-    
-    myapp = StatusyzerForm()
-    myapp.show()
-    
-    app.exec_()
+	app = QtGui.QApplication([])
+
+	myapp = StatusyzerForm()
+	myapp.show()
+
+	app.exec_()
