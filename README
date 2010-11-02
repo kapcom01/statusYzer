@@ -1,13 +1,13 @@
 ENGLISH:
-statusYzer is a python application that uses QT for GUI and pcap for network analysis aiming to log the status changes of your MSN contacts. The perpose of this is to exploit for demonstration a BUG on Microsoft's MSN Protocol that allows to know when a contact has set his/her status to "Appear Offline". This is a privacy issue that has been reportes to Microsoft since January 2010 and its still allive.
+statusYzer is a python application that uses QT for GUI and pcap for network analysis aiming to log the status changes of your MSN contacts. The perpose of this is to exploit for demonstration a BUG on Microsoft's MSN Protocol that allows to know when a contact has set his/her status to "Appear Offline". This is a privacy issue that has been reported to Microsoft since January 2010 and its still allive.
 
 MANUAL:
 1) Close your MSN client (Windows Live Messenger, Emesene, Pidgin...)
-2) On statusYzer select from the drop down menu the ethernet card that connects you to the Inetrnet
+2) On statusYzer select from the drop down menu the ethernet card that connects you to the Internet
 3) Then press the "Start Analyzing..." button
 4) And open your MSN client and login
 
-Now leave statusYzer open and when the counter raises it means that the corresponding contact is either on "Appera Offline" status OR it was already and now is really disconnected!
+Now leave statusYzer open and when the counter raises it means that the corresponding contact is either on "Appear Offline" status OR it was already and now is really disconnected!
 
 P.S. I am not a good programmer.. I developed this app while learning python+qt+pcap :)
 
