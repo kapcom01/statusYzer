@@ -4,7 +4,7 @@ statusYzer is a python application that uses QT for GUI and pcap for network ana
 MANUAL:
 1) Close your MSN client (Windows Live Messenger, Emesene, Pidgin...)
 2) On statusYzer select from the drop down menu the ethernet card that connects you to the Inetrnet
-3) Then press the "Start Analyzing XXX..." button
+3) Then press the "Start Analyzing..." button
 4) And open your MSN client and login
 
 Now leave statusYzer open and when the counter raises it means that the corresponding contact is either on "Appera Offline" status OR it was already and now is really disconnected!
@@ -19,7 +19,7 @@ P.S. I am not a good programmer.. I developed this app while learning python+qt+
 ΕΓΧΕΙΡΙΔΙΟ:
 1) Κλείστε το πρόγραμμα του MSN (Windows Live Messenger, Emesene, Pidgin...)
 2) Στο statusYzer επιλέξτε από το αναδυόμενο μενού την κάρτα δικτύου που συνδέεστε στο ίντερνετ
-3) Μετά πατήστε το κουμπί "Έναρξη Ανάλυσης ΧΧΧ..."
+3) Μετά πατήστε το κουμπί "Έναρξη Ανάλυσης..."
 4) Και ανοίξτε το πρόγραμμα MSN και κάντε είσοδο
 
 Τώρα αφήστε ανοιχτό το statusYzer και όταν ο μετρητής αυξάνεται σημαίνει ότι η αντίστοιχη επαφή είτε μπήκε σε κατάσταση "Εμφάνιση Εκτός Σύδεσης" ή ήταν ήδη και αποσυνδέθηκε πραγματικά!

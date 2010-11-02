@@ -6,4 +6,4 @@ SCRIPT=$(readlink -f "$0")
 # kratame mono th diadromi (/home/user/bin)
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-gksu /usr/bin/env python "$SCRIPTPATH/src/statusyzer.pyw"
+gksu /usr/bin/env python "$SCRIPTPATH/src/statusyzer.py"
