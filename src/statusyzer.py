@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import gettext
+
+# Set up message catalog access
+t = gettext.translation('statusyzer', 'locale', fallback=False)
+_ = t.ugettext
+
 from PyQt4 import QtCore, QtGui
 import pcapy
 import time
@@ -17,8 +23,7 @@ class StatusyzerForm(QtGui.QMainWindow):
 		QtGui.QWidget.__init__(self, parent)
 		self.ui = Ui_statusyzer()
 		self.ui.setupUi(self)
-		self.language = Messages('greek')
-		self.ui.pushButton_start_sniffer.setText(self.language.getMessage('Start Analyzing'))
+		self.ui.pushButton_start_sniffer.setText(_('Start Analyzing'))
 		self.test_findalldevs()
 		self.ctimer = QtCore.QTimer()
 		QtCore.QObject.connect(self.ui.pushButton_start_sniffer, QtCore.SIGNAL("released()"), self.start_button_check)
@@ -52,14 +57,15 @@ class StatusyzerForm(QtGui.QMainWindow):
 
 	def start_button_check(self):
 		self.ifname = self.ui.combobox_interfaces.currentText()
-		if self.ui.pushButton_start_sniffer.text() == self.language.getMessage('Start Analyzing'):
-			new_text = '%s %s...' % (self.language.getMessage('Stop Analyzing'), self.ifname)
+		if self.ui.pushButton_start_sniffer.text() == _('Start Analyzing'):
+			new_text = '%s %s...' % (_('Stop Analyzing'), self.ifname)
 			self.ui.pushButton_start_sniffer.setText(new_text)
 			self.start_sniffer()
 		else:
-			new_text = self.language.getMessage('Start Analyzing')
+			new_text = _('Start Analyzing')
 			self.ui.pushButton_start_sniffer.setText(new_text)
-			tmpstr = self.language.getMessage('Analyzing Stopped')
+			tmpstr = _('Analyzing Stopped')
+
 			self.ui.list_statuses.addItem(tmpstr)
 			self.ctimer.stop()
 
@@ -178,27 +184,27 @@ class StatusyzerForm(QtGui.QMainWindow):
 			self.ui.list_statuses.item(tmplist0row).setTextColor(QtGui.QColor('red'))
 
 	def ns_redirection(self,address):
-		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), self.language.getMessage('Connecting to Notification Server at'), address))
+		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Connecting to Notification Server at'), address))
 		tablistrow = self.ui.list_statuses.count()-1
 		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
 		for email in self.buddies:
 			tmpindex = self.buddies[email].getIndex() #fuzyy.. δεν θυμάμαι γιατί το έγραψα...
-			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), self.language.getMessage('Connecting to Notification Server at'), address))
+			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Connecting to Notification Server at'), address))
 			tablistrow = self.buddies[email].tablist.count()-1
 			self.buddies[email].tablist.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
 	def start_sniffer(self):
 		self.ifname = str(self.ifname)
-		tmpstr = '%s %s' % (self.language.getMessage('Opening'), self.ifname)
+		tmpstr = '%s %s' % (_('Opening'), self.ifname)
 		self.ui.list_statuses.addItem(tmpstr)
 		try:
 			self.cap = pcapy.open_live(self.ifname, 1600, 1, 5)
 		except:
-			self.ui.list_statuses.addItem(self.language.getMessage('ERROR'))
+			self.ui.list_statuses.addItem(_('ERROR'))
 			return
 		self.cap.setfilter('tcp port 1863')
-		tmpstr = '%s' % self.language.getMessage('Analyzing Notifications...')
+		tmpstr = '%s' % _('Analyzing Notifications...')
 		self.ui.list_statuses.addItem(tmpstr)
 		self.ctimer.start(10)
 
@@ -230,30 +236,6 @@ class MSN_Buddy():
 
 	def getMpinies(self):
 		return str(self.mpinies)
-
-class Messages():
-
-	def __init__(self,language):
-		self.messages = {}
-		if language == 'greek':
-			self.messages['Start Analyzing'] = QtCore.QString.fromUtf8('Έναρξη Ανάλυσης')
-			self.messages['Stop Analyzing'] = QtCore.QString.fromUtf8('Διακοπή Ανάλυσης')
-			self.messages['Analyzing Stopped'] = QtCore.QString.fromUtf8('Η Ανάλυση Διεκόπη')
-			self.messages['Opening'] = QtCore.QString.fromUtf8('Άνοιγμα')
-			self.messages['Analyzing Notifications...'] = QtCore.QString.fromUtf8('Ανάλυση Ειδοποιήσεων...')
-			self.messages['ERROR'] = QtCore.QString.fromUtf8('ΣΦΑΛΜΑ')
-			self.messages['Connecting to Notification Server at'] = QtCore.QString.fromUtf8('Σύνδεση στον Εξυπηρετητή Ειδοποιήσεων στην')
-		else:
-			self.messages['Start Analyzing'] = 'Start Analyzing'
-			self.messages['Stop Analyzing'] = 'Stop Analyzing'
-			self.messages['Analyzing Stopped'] = 'Analyzing Stopped'
-			self.messages['Opening'] = 'Opening'
-			self.messages['Analyzing Notifications...'] = 'Analyzing Notifications...'
-			self.messages['ERROR'] = 'ERROR'
-			self.messages['Connecting to Notification Server at'] = 'Connecting to Notification Server at'
-
-	def getMessage(self,message):
-		return self.messages[message]
 
 
 try:
