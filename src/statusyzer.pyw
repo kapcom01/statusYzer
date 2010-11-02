@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import gettext
-
-# Set up message catalog access
-t = gettext.translation('statusyzer', 'locale', fallback=False)
+t = gettext.translation('statusyzer', 'locale', fallback=True)
 _ = t.ugettext
 
 from PyQt4 import QtCore, QtGui
