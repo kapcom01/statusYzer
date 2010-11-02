@@ -24,6 +24,7 @@ from PyQt4 import QtCore, QtGui
 import pcapy
 import time
 from whatisfln_ui import Ui_flnDialog
+from about_ui import Ui_aboutDialog
 from statusyzer_ui import Ui_statusyzer
 
 class flnForm(QtGui.QDialog):
@@ -31,6 +32,12 @@ class flnForm(QtGui.QDialog):
 		QtGui.QWidget.__init__(self, parent)
 		self.fln = Ui_flnDialog()
 		self.fln.setupUi(self)
+
+class aboutForm(QtGui.QDialog):
+	def __init__(self, parent=None):
+		QtGui.QWidget.__init__(self, parent)
+		self.about = Ui_aboutDialog()
+		self.about.setupUi(self)
 
 class StatusyzerForm(QtGui.QMainWindow):
 	def __init__(self, parent=None):
@@ -44,12 +51,17 @@ class StatusyzerForm(QtGui.QMainWindow):
 		QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.constantUpdate)
 		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL("itemSelectionChanged()"), self.show_item_tabs)
 		QtCore.QObject.connect(self.ui.pb_whatisfln, QtCore.SIGNAL("released()"), self.show_fln)
+		QtCore.QObject.connect(self.ui.pb_about, QtCore.SIGNAL("released()"), self.show_about)
 		self.mpinies = {}
 		self.buddies = {}
 
 	def show_fln(self):
-		self.d = flnForm()
-		self.d.show()
+		self.dlg = flnForm()
+		self.dlg.show()
+
+	def show_about(self):
+		self.dlg = aboutForm()
+		self.dlg.show()
 
 	def show_item_tabs(self):
 		tmpindex = self.ui.tableWidget.currentRow()
