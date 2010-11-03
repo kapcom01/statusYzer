@@ -44,7 +44,15 @@ class StatusyzerForm(QtGui.QMainWindow):
 		QtGui.QWidget.__init__(self, parent)
 		self.ui = Ui_statusyzer()
 		self.ui.setupUi(self)
+		#αρχικοποίηση strings
 		self.ui.pushButton_start_sniffer.setText(_('Start Analyzing'))
+		self.ui.pb_all.setText(_('All'))
+		self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.ui.tab0),_('All'))
+		self.ui.tableWidget.horizontalHeaderItem(0).setText(_('Contacts'))
+		self.ui.tableWidget.horizontalHeaderItem(1).setText(_('Fakes'))
+		self.ui.pb_whatisfln.setText(_('What is FLN'))
+		self.ui.pb_about.setText(_('About the programm'))
+		#-----------------
 		self.test_findalldevs()
 		self.ctimer = QtCore.QTimer()
 		QtCore.QObject.connect(self.ui.pushButton_start_sniffer, QtCore.SIGNAL("released()"), self.start_button_check)

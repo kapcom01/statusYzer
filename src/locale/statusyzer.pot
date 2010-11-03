@@ -1,45 +1,66 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2010-11-02 02:54+EET\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-03 22:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: pygettext.py 1.5\n"
 
-
-#: statusyzer.pyw:26 statusyzer.pyw:60 statusyzer.pyw:65
+#: statusyzer.pyw:48 statusyzer.pyw:94 statusyzer.pyw:99
 msgid "Start Analyzing"
 msgstr ""
 
-#: statusyzer.pyw:61
+#: statusyzer.pyw:49
+msgid "All"
+msgstr ""
+
+#: statusyzer.pyw:51
+msgid "Contacts"
+msgstr ""
+
+#: statusyzer.pyw:52
+msgid "Fakes"
+msgstr ""
+
+#: statusyzer.pyw:53
+msgid "What is FLN"
+msgstr ""
+
+#: statusyzer.pyw:54
+msgid "About the programm"
+msgstr ""
+
+#: statusyzer.pyw:95
 msgid "Stop Analyzing"
 msgstr ""
 
-#: statusyzer.pyw:67
+#: statusyzer.pyw:101
 msgid "Analyzing Stopped"
 msgstr ""
 
-#: statusyzer.pyw:187 statusyzer.pyw:193
+#: statusyzer.pyw:221 statusyzer.pyw:227
 msgid "Connecting to Notification Server at"
 msgstr ""
 
-#: statusyzer.pyw:199
+#: statusyzer.pyw:233
 msgid "Opening"
 msgstr ""
 
-#: statusyzer.pyw:204
+#: statusyzer.pyw:238
 msgid "ERROR"
 msgstr ""
 
-#: statusyzer.pyw:207
+#: statusyzer.pyw:241
 msgid "Analyzing Notifications..."
 msgstr ""
-
