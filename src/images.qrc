@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="images">
+    <file>statusYzer.png</file>
+  </qresource>
+</RCC>

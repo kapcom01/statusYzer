@@ -165,14 +165,14 @@
     <item row="4" column="0" colspan="2">
      <widget class="QPushButton" name="pb_whatisfln">
       <property name="text">
-       <string>Τι είναι το πακέτο FLN</string>
+       <string>FLN και MSN</string>
       </property>
      </widget>
     </item>
     <item row="4" column="2">
      <widget class="QPushButton" name="pb_about">
       <property name="text">
-       <string>Σχετικά με το πρόγραμμα</string>
+       <string>Σχετικά</string>
       </property>
      </widget>
     </item>

@@ -22,7 +22,7 @@ _ = t.ugettext
 from PyQt4 import QtCore, QtGui
 import pcapy
 import time
-from whatisfln_ui import Ui_flnDialog
+from fln_n_msn_ui import Ui_flnDialog
 from about_ui import Ui_aboutDialog
 from statusyzer_ui import Ui_statusyzer
 
@@ -49,8 +49,8 @@ class StatusyzerForm(QtGui.QMainWindow):
 		self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.ui.tab0),_('All'))
 		self.ui.tableWidget.horizontalHeaderItem(0).setText(_('Contacts'))
 		self.ui.tableWidget.horizontalHeaderItem(1).setText(_('Fakes'))
-		self.ui.pb_whatisfln.setText(_('What is FLN'))
-		self.ui.pb_about.setText(_('About the programm'))
+		self.ui.pb_whatisfln.setText(_('FLN and MSN program'))
+		self.ui.pb_about.setText(_('About statusYzer'))
 		#-----------------
 		self.test_findalldevs()
 		self.ctimer = QtCore.QTimer()
