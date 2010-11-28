@@ -84,11 +84,12 @@ class StatusyzerForm(QtGui.QMainWindow):
 			self.ui.list_statuses.addItem(_('ERROR: Could not find a network device. Are you Administrator?'))
 			tablistrow = self.ui.list_statuses.count()-1
 			self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('red'))
+	
 	def constantUpdate(self):
 		try:
 			(header, payload) = self.cap.next()
 		except:
-			return
+			return #if there is no next() packet yet
 		if header != None : self.print_packet(header.getlen(),payload,time.strftime('%d-%m-%Y, %H:%M:%S'))
 
 	def start_button_check(self):
@@ -128,7 +129,7 @@ class StatusyzerForm(QtGui.QMainWindow):
 	def print_packet(self,pktlen, data, timestamp):
 		if not data:
 			return
-		if data[12:14]=='\x08\x00':
+		if data[12:14]=='\x08\x00': #if it is an IP packet
 			decoded_ip=self.decode_ip_packet(data[14:])
 			#print 'IP: %s' % decoded_ip
 			ip_header_bytes=4*decoded_ip['header_len']
@@ -137,9 +138,15 @@ class StatusyzerForm(QtGui.QMainWindow):
 			#print 'TCP payload: %s' % data_str
 			command=data_str.split()
 			if len(command)>1:
-				if 'ILN'==command[0]: self.buddy_status_change(command[3],'Online')
+				if 'FLN'==command[0]:
+					#----------------------------------------------------------
+					#--------  IGNORE YAHOO CLIENTS  --------------------------
+					#---  (this is a bug i dont know how to fix)  -------------
+					if command[2]!='32': 
+					#----------------------------------------------------------
+						self.buddy_status_change(command[1],'Offline')
+				elif 'ILN'==command[0]: self.buddy_status_change(command[3],'Online')
 				elif 'NLN'==command[0]: self.buddy_status_change(command[2],'Online')
-				elif 'FLN'==command[0]: self.buddy_status_change(command[1],'Offline')
 				elif 'XFR'==command[0] and 'NS'==command[2]: self.ns_redirection(command[3])
 				elif 'RNG'==command[0]: print 'RNG: ' + command[5] + ' ' + command[6]
 				elif 'BYE'==command[0]: print 'BYE: ' + command[1]
@@ -149,6 +156,9 @@ class StatusyzerForm(QtGui.QMainWindow):
 		status_color['Online'] = QtGui.QColor('green')
 		status_color['Offline'] = QtGui.QColor('black')
 
+		#----------------------------------------------------------
+		#--------  IGNORE YAHOO CLIENTS  --------------------------
+		#---  (this is a bug i dont know how to fix)  -------------
 		colon = email.find(':')
 		if colon!=-1:
 			if email[0:colon]=='32': return
@@ -157,6 +167,8 @@ class StatusyzerForm(QtGui.QMainWindow):
 		colon = email.find(';')
 		if colon!=-1:
 			email = '[G]' + email[:colon]
+		#----------------------------------------------------------
+		#----------------------------------------------------------
 		
 		#ελέγχουμε αν υπάρχει ήδη αυτη η επαφή
 		if email in self.buddies:
@@ -242,7 +254,9 @@ class StatusyzerForm(QtGui.QMainWindow):
 		self.cap.setfilter('tcp port 1863')
 		tmpstr = '%s' % _('Analyzing Notifications...')
 		self.ui.list_statuses.addItem(tmpstr)
+		
 		self.ctimer.start(10)
+		
 		tmpstr = '%s' % _('Now you can start your MSN program...')
 		self.ui.list_statuses.addItem(tmpstr)
 		tablistrow = self.ui.list_statuses.count()-1
