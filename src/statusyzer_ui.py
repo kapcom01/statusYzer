@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'statusyzer.ui'
 #
-# Created: Sun Nov 22 01:03:31 2009
-#      by: PyQt4 UI code generator 4.6
+# Created: Sun Nov 28 08:36:17 2010
+#      by: PyQt4 UI code generator 4.7.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,17 +12,37 @@ from PyQt4 import QtCore, QtGui
 class Ui_statusyzer(object):
     def setupUi(self, statusyzer):
         statusyzer.setObjectName("statusyzer")
-        statusyzer.resize(563, 521)
+        statusyzer.resize(561, 524)
         self.centralWidget = QtGui.QWidget(statusyzer)
         self.centralWidget.setObjectName("centralWidget")
         self.gridLayout = QtGui.QGridLayout(self.centralWidget)
         self.gridLayout.setObjectName("gridLayout")
+        self.label_3 = QtGui.QLabel(self.centralWidget)
+        self.label_3.setMinimumSize(QtCore.QSize(0, 16))
+        self.label_3.setMaximumSize(QtCore.QSize(16, 16))
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
+        self.label_step1 = QtGui.QLabel(self.centralWidget)
+        self.label_step1.setMinimumSize(QtCore.QSize(411, 16))
+        self.label_step1.setMaximumSize(QtCore.QSize(16777215, 16))
+        self.label_step1.setObjectName("label_step1")
+        self.gridLayout.addWidget(self.label_step1, 0, 1, 1, 2)
+        self.label = QtGui.QLabel(self.centralWidget)
+        self.label.setMaximumSize(QtCore.QSize(16, 16777215))
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
         self.combobox_interfaces = QtGui.QComboBox(self.centralWidget)
+        self.combobox_interfaces.setMinimumSize(QtCore.QSize(431, 0))
         self.combobox_interfaces.setObjectName("combobox_interfaces")
-        self.gridLayout.addWidget(self.combobox_interfaces, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.combobox_interfaces, 1, 1, 1, 2)
+        self.label_2 = QtGui.QLabel(self.centralWidget)
+        self.label_2.setMaximumSize(QtCore.QSize(16, 16777215))
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
         self.pushButton_start_sniffer = QtGui.QPushButton(self.centralWidget)
+        self.pushButton_start_sniffer.setMinimumSize(QtCore.QSize(431, 0))
         self.pushButton_start_sniffer.setObjectName("pushButton_start_sniffer")
-        self.gridLayout.addWidget(self.pushButton_start_sniffer, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_start_sniffer, 2, 1, 1, 2)
         self.splitter_3 = QtGui.QSplitter(self.centralWidget)
         self.splitter_3.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_3.setObjectName("splitter_3")
@@ -59,13 +79,13 @@ class Ui_statusyzer(object):
         self.list_statuses.setObjectName("list_statuses")
         self.gridLayout_2.addWidget(self.list_statuses, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab0, "")
-        self.gridLayout.addWidget(self.splitter_3, 1, 0, 1, 2)
+        self.gridLayout.addWidget(self.splitter_3, 3, 0, 1, 3)
         self.pb_whatisfln = QtGui.QPushButton(self.centralWidget)
         self.pb_whatisfln.setObjectName("pb_whatisfln")
-        self.gridLayout.addWidget(self.pb_whatisfln, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.pb_whatisfln, 4, 0, 1, 2)
         self.pb_about = QtGui.QPushButton(self.centralWidget)
         self.pb_about.setObjectName("pb_about")
-        self.gridLayout.addWidget(self.pb_about, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.pb_about, 4, 2, 1, 1)
         statusyzer.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(statusyzer)
@@ -74,6 +94,10 @@ class Ui_statusyzer(object):
 
     def retranslateUi(self, statusyzer):
         statusyzer.setWindowTitle(QtGui.QApplication.translate("statusyzer", "statusYzer (www.kapcom.gr)", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("statusyzer", "1.", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_step1.setText(QtGui.QApplication.translate("statusyzer", "Κλείστε το MSN", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("statusyzer", "2.", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("statusyzer", "3.", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_start_sniffer.setText(QtGui.QApplication.translate("statusyzer", "Έναρξη ", None, QtGui.QApplication.UnicodeUTF8))
         self.pb_all.setText(QtGui.QApplication.translate("statusyzer", "Όλα", None, QtGui.QApplication.UnicodeUTF8))
         self.tableWidget.horizontalHeaderItem(0).setText(QtGui.QApplication.translate("statusyzer", "Επαφές", None, QtGui.QApplication.UnicodeUTF8))

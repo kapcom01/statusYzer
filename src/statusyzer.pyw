@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
-#  Copyright 2010 Emmanouel Kapernaros
+#  Copyright 2009-2010 Emmanouel Kapernaros <manolis@kapcom.gr>
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+#    it under the terms of the GNU General Public License version 3 as published by
+#    the Free Software Foundation.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -81,7 +80,10 @@ class StatusyzerForm(QtGui.QMainWindow):
 				self.ui.combobox_interfaces.addItem(ifname)
 		except:
 			pass
-	
+		if self.ui.combobox_interfaces.count() == 0 :
+			self.ui.list_statuses.addItem(_('ERROR: Could not find a network device. Are you Administrator?'))
+			tablistrow = self.ui.list_statuses.count()-1
+			self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('red'))
 	def constantUpdate(self):
 		try:
 			(header, payload) = self.cap.next()
@@ -218,13 +220,13 @@ class StatusyzerForm(QtGui.QMainWindow):
 			self.ui.list_statuses.item(tmplist0row).setTextColor(QtGui.QColor('red'))
 
 	def ns_redirection(self,address):
-		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Connecting to Notification Server at'), address))
+		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connecting to Notification Server at'), address))
 		tablistrow = self.ui.list_statuses.count()-1
 		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
 		for email in self.buddies:
 			tmpindex = self.buddies[email].getIndex() #fuzyy.. δεν θυμάμαι γιατί το έγραψα...
-			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Connecting to Notification Server at'), address))
+			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connecting to Notification Server at'), address))
 			tablistrow = self.buddies[email].tablist.count()-1
 			self.buddies[email].tablist.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
@@ -241,6 +243,10 @@ class StatusyzerForm(QtGui.QMainWindow):
 		tmpstr = '%s' % _('Analyzing Notifications...')
 		self.ui.list_statuses.addItem(tmpstr)
 		self.ctimer.start(10)
+		tmpstr = '%s' % _('Now you can start your MSN program...')
+		self.ui.list_statuses.addItem(tmpstr)
+		tablistrow = self.ui.list_statuses.count()-1
+		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('green'))
 
 
 class MSN_Buddy():
