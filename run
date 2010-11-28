@@ -1,10 +1,10 @@
 #! /bin/bash
 
-# vriskoume to plires  path tou script (/home/user/bin/foo.sh)
-SCRIPT=$(readlink -f "$0")
+#---- LINUX --->
 
-# kratame mono th diadromi (/home/user/bin)
+# find the full path of this script
+SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 cd "$SCRIPTPATH/src/"
-gksu /usr/bin/env python "statusyzer.pyw"
+gksu /usr/bin/env python "statusyzer.pyw" #gnome only
