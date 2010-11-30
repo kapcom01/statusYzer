@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'statusyzer.ui'
 #
-# Created: Sun Nov 28 10:10:01 2010
+# Created: Tue Nov 30 19:14:38 2010
 #      by: PyQt4 UI code generator 4.7.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -80,9 +80,9 @@ class Ui_statusyzer(object):
         self.gridLayout_2.addWidget(self.list_statuses, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab0, "")
         self.gridLayout.addWidget(self.splitter_3, 3, 0, 1, 3)
-        self.pb_whatisfln = QtGui.QPushButton(self.centralWidget)
-        self.pb_whatisfln.setObjectName("pb_whatisfln")
-        self.gridLayout.addWidget(self.pb_whatisfln, 4, 0, 1, 2)
+        self.pb_msn_clients = QtGui.QPushButton(self.centralWidget)
+        self.pb_msn_clients.setObjectName("pb_msn_clients")
+        self.gridLayout.addWidget(self.pb_msn_clients, 4, 0, 1, 2)
         self.pb_about = QtGui.QPushButton(self.centralWidget)
         self.pb_about.setObjectName("pb_about")
         self.gridLayout.addWidget(self.pb_about, 4, 2, 1, 1)
@@ -103,6 +103,6 @@ class Ui_statusyzer(object):
         self.tableWidget.horizontalHeaderItem(0).setText(QtGui.QApplication.translate("statusyzer", "Επαφές", None, QtGui.QApplication.UnicodeUTF8))
         self.tableWidget.horizontalHeaderItem(1).setText(QtGui.QApplication.translate("statusyzer", "Μπινιές", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab0), QtGui.QApplication.translate("statusyzer", "Όλα", None, QtGui.QApplication.UnicodeUTF8))
-        self.pb_whatisfln.setText(QtGui.QApplication.translate("statusyzer", "FLN και MSN", None, QtGui.QApplication.UnicodeUTF8))
+        self.pb_msn_clients.setText(QtGui.QApplication.translate("statusyzer", "Συμβατά MSN προγράμματα", None, QtGui.QApplication.UnicodeUTF8))
         self.pb_about.setText(QtGui.QApplication.translate("statusyzer", "Σχετικά", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -22,21 +22,21 @@ _ = t.ugettext
 from PyQt4 import QtCore, QtGui
 import pcapy
 import time
-from fln_n_msn_ui import Ui_flnDialog
-from about_ui import Ui_aboutDialog
-from statusyzer_ui import Ui_statusyzer
+from gui.msn_clients_ui import Ui_msn_clientsDialog
+from gui.about_ui import Ui_aboutDialog
+from gui.statusyzer_ui import Ui_statusyzer
 
-class flnForm(QtGui.QDialog):
+class msn_clientsForm(QtGui.QDialog):
 	def __init__(self, parent=None):
 		QtGui.QWidget.__init__(self, parent)
-		self.fln = Ui_flnDialog()
-		self.fln.setupUi(self)
+		self.ui = Ui_msn_clientsDialog()
+		self.ui.setupUi(self)
 
 class aboutForm(QtGui.QDialog):
 	def __init__(self, parent=None):
 		QtGui.QWidget.__init__(self, parent)
-		self.about = Ui_aboutDialog()
-		self.about.setupUi(self)
+		self.ui = Ui_aboutDialog()
+		self.ui.setupUi(self)
 
 class StatusyzerForm(QtGui.QMainWindow):
 	def __init__(self, parent=None):
@@ -49,7 +49,7 @@ class StatusyzerForm(QtGui.QMainWindow):
 		self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.ui.tab0),_('All'))
 		self.ui.tableWidget.horizontalHeaderItem(0).setText(_('Contacts'))
 		self.ui.tableWidget.horizontalHeaderItem(1).setText(_('Fakes'))
-		self.ui.pb_whatisfln.setText(_('FLN and MSN program'))
+		self.ui.pb_msn_clients.setText(_('Compatible MSN programs'))
 		self.ui.pb_about.setText(_('About statusYzer'))
 		#-----------------
 		self.test_findalldevs()
@@ -57,13 +57,13 @@ class StatusyzerForm(QtGui.QMainWindow):
 		QtCore.QObject.connect(self.ui.pushButton_start_sniffer, QtCore.SIGNAL("released()"), self.start_button_check)
 		QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.constantUpdate)
 		QtCore.QObject.connect(self.ui.tableWidget, QtCore.SIGNAL("itemSelectionChanged()"), self.show_item_tabs)
-		QtCore.QObject.connect(self.ui.pb_whatisfln, QtCore.SIGNAL("released()"), self.show_fln)
+		QtCore.QObject.connect(self.ui.pb_msn_clients, QtCore.SIGNAL("released()"), self.show_msn_clients)
 		QtCore.QObject.connect(self.ui.pb_about, QtCore.SIGNAL("released()"), self.show_about)
 		self.mpinies = {}
 		self.buddies = {}
 
-	def show_fln(self):
-		self.dlg = flnForm()
+	def show_msn_clients(self):
+		self.dlg = msn_clientsForm()
 		self.dlg.show()
 
 	def show_about(self):
@@ -232,13 +232,13 @@ class StatusyzerForm(QtGui.QMainWindow):
 			self.ui.list_statuses.item(tmplist0row).setTextColor(QtGui.QColor('red'))
 
 	def ns_redirection(self,address):
-		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connecting to Notification Server at'), address))
+		self.ui.list_statuses.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connection to Notification Server at'), address))
 		tablistrow = self.ui.list_statuses.count()-1
 		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
 		for email in self.buddies:
 			tmpindex = self.buddies[email].getIndex() #fuzyy.. δεν θυμάμαι γιατί το έγραψα...
-			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connecting to Notification Server at'), address))
+			self.buddies[email].tablist.addItem('(%s): %s %s' % (time.strftime('%d-%m-%Y, %H:%M:%S'), _('Detected Connection to Notification Server at'), address))
 			tablistrow = self.buddies[email].tablist.count()-1
 			self.buddies[email].tablist.item(tablistrow).setTextColor(QtGui.QColor('orange'))
 
@@ -257,7 +257,7 @@ class StatusyzerForm(QtGui.QMainWindow):
 		
 		self.ctimer.start(10)
 		
-		tmpstr = '%s' % _('Now you can start your MSN program...')
+		tmpstr = '%s' % _('Now you can open MSN. Click [Compatible MSN programs] for info..')
 		self.ui.list_statuses.addItem(tmpstr)
 		tablistrow = self.ui.list_statuses.count()-1
 		self.ui.list_statuses.item(tablistrow).setTextColor(QtGui.QColor('green'))
