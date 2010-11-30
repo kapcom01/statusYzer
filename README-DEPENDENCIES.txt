@@ -1,18 +1,15 @@
-﻿The source code is dependent on some libraries. You have to download and install them if you want to compile, run, or test the source code.b Below there are instructions on how to get them.
+﻿The source code is dependent on some libraries. You have to download and install them if you want to compile, run, or test the source code. Below there are instructions on how to get them.
 
-If you just want to use the program then it is recommended not to follow the the instructions below, but to download the binary files from http://dl.dropbox.com/u/3429388/statusyzer/download.html
+If you just want to use the program then it is recommended not to follow the instructions below, but to download the binary files from http://dl.dropbox.com/u/3429388/statusyzer/download.html
 
 
-====
-========
-===========================
+
 LINUX
 ===========================
 ========
 ====
 
 For Debian based distros (Ubuntu, Mint...):
-sudo apt-get install python
 sudo apt-get install python-qt4
 sudo apt-get install python-pcapy
 
@@ -21,21 +18,22 @@ For RPM based disrtos (Fedroa, openSuse...):
 
 
 
-====
-========
-===========================
 OSX
 ===========================
 ========
 ====
 
-(coming soon)
+Macports:
+http://www.macports.org/install.php
+
+Pcapy:
+sudo port install py26-pcapy
+
+PyQt:
+sudo port install py26-pyqt4 #(it will take some hours)
 
 
 
-====
-========
-===========================
 WINDOWS
 ===========================
 ========
