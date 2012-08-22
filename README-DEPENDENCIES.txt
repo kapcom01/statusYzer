@@ -45,11 +45,14 @@ http://www.winpcap.org/
 Python 2.6:
 >Windows 32bit:
 http://www.python.org/ftp/python/2.6.6/python-2.6.6.msi
->windows 64bit:
+>Windows 64bit:
 http://www.python.org/ftp/python/2.6.6/python-2.6.6.amd64.msi
 
 Pcapy:
 http://winappdbg.sourceforge.net/blog/pcapy-0.10.5.win32-py2.6.msi
 
 PyQt4:
+>Windows 32bit:
 http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-Py2.6-x86-gpl-4.9.4-1.exe
+>Windows 64bit:
+http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-Py2.6-x64-gpl-4.9.4-1.exe
