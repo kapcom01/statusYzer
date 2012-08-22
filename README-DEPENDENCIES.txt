@@ -52,4 +52,4 @@ Pcapy:
 http://winappdbg.sourceforge.net/blog/pcapy-0.10.5.win32-py2.6.msi
 
 PyQt4:
-http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-Py2.6-gpl-4.8.1-1.exe
+http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-Py2.6-x86-gpl-4.9.4-1.exe
